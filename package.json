@@ -1,0 +1,29 @@
+{
+  "name": "handraise-ui",
+  "version": "1.0.0",
+  "description": "demo of Daily's handraise UI for video calls",
+  "scripts": {
+    "prettify": "prettier --write \"./**/*.{js,css,html,md}\"",
+    "dev": "http-server",
+    "netlify-build": "sed -i s/DAILY_API_KEY_PLACEHOLDER/${DAILY_API_KEY}/g netlify.toml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashk2000/daily-raise-hand"
+  },
+  "keywords": [
+    "video",
+    "webrtc",
+    "daily"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yashk2000/daily-raise-hand"
+  },
+  "homepage": "https://github.com/yashk2000/daily-raise-hand#readme",
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "prettier": "^2.2.1"
+  }
+}

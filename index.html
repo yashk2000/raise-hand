@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <title>Daily Raise Hand Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/@daily-co/daily-js"></script>
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js"></script>
+  </head>
+  <body onload="createCallframe()">
+    <header class="header">
+      <div class="left-header">
+        <img
+          src="assets/daily_logo.svg"
+          class="daily-logo"
+          alt="Daily logo reads Daily"
+        />
+        <strong>
+          <p class="header-title">Daily Raise Hand Demo</p>
+        </strong>
+      </div>
+      <div class="right-header">
+        <a href="https://docs.daily.co/reference" target="_blank" class="link">
+          <button class="button docs-button white-button">
+            API docs
+            <img
+              class="arrow-icon"
+              src="/assets/new_tab_icon.png"
+              alt="Arrow icon points up and to the right"
+            />
+          </button>
+        </a>
+        <span class="divider"></span>
+        <a href="https://github.com/yashk2000/daily-raise-hand" target="_blank">
+          <img
+            class="octocat"
+            src="assets/github_logo.png"
+            alt="GitHub logo Octocat"
+          />
+        </a>
+      </div>
+    </header>
+    <div class="container">
+      <div id="wrapper" class="wrapper">
+        <div id="start-container" class="start-container">
+          <h1 class="title">Daily Raise Hand Demo</h1>
+          <p class="prompt">
+            Start with a new room.
+          </p>
+          <button
+            id="create-and-start"
+            class="button start-button"
+            onclick="createRoomAndStart()"
+          >
+            Create room and start
+          </button>
+        </div>
+        <div id="error-message" class="hide">
+          <h2 id="error-title" class="title error-title">Incorrect room URL</h2>
+          <p id="error-description" class="error-description">
+            Meeting link entered is invalid. Please update the room URL.
+          </p>
+          <button class="button white-button" onClick="tryAgain()">
+            Try Again
+          </button>
+        </div>
+      </div>
+      <div id="call-controls-wrapper" class="call-controls-wrapper hide">
+        <div class="call-controls">
+          <div class="controls-header">
+            <h3>Call overview</h3>
+            <p id="demo-countdown" class="demo-countdown"></p>
+          </div>
+          <div class="controls-copy-url">
+            <div class="copy-url-instructions">
+              <h3>Invite participants</h3>
+              <p>Share URL below to invite others</p>
+            </div>
+            <div class="copy-url-action">
+              <label for="copy-url"></label>
+              <input
+                type="text"
+                class="url-input"
+                id="copy-url"
+                placeholder="Copy this room URL"
+                pattern="^(https:\/\/)?[\w.-]+(\.(daily\.(co)))+[\/\/]+[\w.-]+$"
+              />
+              <button
+                id="copy-url-button"
+                class="button copy-url-button"
+                onclick="copyUrl()"
+              >
+                Copy URL
+              </button>
+            </div>
+          </div>
+          <div class="participants-panel">
+            <h3>Participants</h3>
+            <div class="participants-section">
+              <div class="local-participant-info ">
+                <img
+                  id="hand-img"
+                  class="hidden"
+                  src="assets/hand.png"
+                  alt="hand icon"
+                  width="50"
+                  height="50"
+                />
+                <p class="name-label"><strong>You</strong></p>
+                <button
+                  class="button is-primary hidden raise-hand-button"
+                  onclick="changeHandState()"
+                >
+                <p class="hand-state has-text-right"></p>
+              </div>
+              <ul class="participant-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
