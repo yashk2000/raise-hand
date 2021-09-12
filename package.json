@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yashk2000/daily-raise-hand"
+    "url": "git+https://github.com/yashk2000/raise-hand"
   },
   "keywords": [
     "video",
@@ -19,9 +19,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yashk2000/daily-raise-hand"
+    "url": "https://github.com/yashk2000/raise-hand"
   },
-  "homepage": "https://github.com/yashk2000/daily-raise-hand#readme",
+  "homepage": "https://github.com/yashk2000/raise-hand",
   "devDependencies": {
     "http-server": "^0.12.3",
     "prettier": "^2.2.1"
