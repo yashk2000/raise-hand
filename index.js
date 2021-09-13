@@ -92,6 +92,11 @@ async function changeHandState() {
   document.querySelector(".hand-state").innerText = `${
     attendee.handRaised ? "Your hand is raised 🙋" : "Your hand is down 💁"
     }`;
+
+  // Turn on video if hand is raised
+  if (attendee.handRaised && !callFrame.participants().local.video) {
+    callFrame.setLocalVideo(!callFrame.participants().local.video);
+  } 
 }
 
 // Receive updates when other participants raise hands and updates the list
