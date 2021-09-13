@@ -36,7 +36,7 @@ This is a simple demo that demonstrates how to implement a function for meeting 
 
 | Demo with 2 participants in a meeting | Demo with 4 participants in a meeting |
 |----|----|
-| ![2](https://user-images.githubusercontent.com/41234408/133001186-a010c988-d601-4225-b2ee-0824b7a5ae4d.gif) | ![4](https://user-images.githubusercontent.com/41234408/133001189-e936b727-31fb-4635-985b-22eb0a5761b3.gif) |
+| ![2](https://user-images.githubusercontent.com/41234408/133001186-a010c988-d601-4225-b2ee-0824b7a5ae4d.gif) | ![4](https://user-images.githubusercontent.com/41234408/133158497-7fe3734b-2e0a-45a5-b0fe-236f60ca9782.gif) |
 
 ## 🖼 Screenshots
 
