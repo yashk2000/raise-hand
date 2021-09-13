@@ -96,7 +96,7 @@ with the `index.html` file. We will add a new div below the **Call Overview** di
 
 This section creates a div called the `local-participant-info` in which a user can see their own hand status, along with having a button to raise or lower their hand. 
 Below this section, lies the `participant-list` which will be populated during the call and updated with the hand state of other participants. 
-For brevity, we have removed the divs with the network information and custom controls, but if you want, you can keep it.
+For brevity, we have removed the divs with the network information and custom controls, but if you want, you can keep those.
 
 Since the image of a raised hand should be displayed only when a hand is raised, it is `hidden`. You can add simply add this to your CSS, in this case, `index.css`
 for the functionality. Since we introduced a new div, `participants-panel`, we can add some styling for that in the CSS as well:
@@ -117,6 +117,7 @@ Let's take a sneak peek at this would look to a user.
 | Hand Raised | Hand Lowered |
 |----|----|
 | ![2021-09-13_01-23_1](https://user-images.githubusercontent.com/41234408/133001038-b5aed461-c7b5-4c2c-9649-7a6582bec090.png) | ![2021-09-13_01-23_2](https://user-images.githubusercontent.com/41234408/133001039-e3ea976a-1cad-4b00-abce-05228523766d.png)|
+
 
 Looks cool, right?
 
@@ -147,7 +148,7 @@ let attendee = {
 };
 ```
 
-As a final step before we go into the logic for implementing the raise hand feature, we need to make small changes to the `handleJoinedMeeting()` and `handleLeftMeeting()`
+Before we go into the logic for implementing the raise hand feature, we need to make small changes to the `handleJoinedMeeting()` and `handleLeftMeeting()`
 functions in `index.js`. These edits are mainly to update the local attendee properties, the UI and set the initial hand raised state for a participant, and update the UI once the attendee leaves 
 the meeting.
 
@@ -205,7 +206,7 @@ async function handleNewParticipant() {
 
 2. Handling `participant-updated` and `participant left` is done by the `handleParticipantUpdate()` dicussed in detail later on. 
 
-3. handling `app-message`:
+3. Handling `app-message`:
 
 This event is triggered when a message is received from another participant, that is if another participant raises or lowers their hand. The function simply updates
 the list of participants with raised hands, which in turn updates the UI accordingly. 
@@ -223,6 +224,8 @@ raise hand button is pressed. It updates the UI of the button, as well as a text
 function which updates the UI(we will go more into the details of this in further sections)
 
 ```js
+/* This is the function called if an attendee presses on 
+the raise hand button and handles the change in state */
 async function changeHandState() {
   isHandRaised.toggleState();
   isHandRaised.sendAttendeeHandState();
@@ -234,8 +237,15 @@ async function changeHandState() {
   document.querySelector(".hand-state").innerText = `${
     attendee.handRaised ? "Your hand is raised 🙋" : "Your hand is down 💁"
     }`;
+
+  // Turn on video if hand is raised
+  if (attendee.handRaised && !callFrame.participants().local.video) {
+    callFrame.setLocalVideo(!callFrame.participants().local.video);
+  } 
 }
 ```
+
+In order to catch the attention of a moderator in case the moderator has turned off the video for participants, when someone raises their hand, we also turn on their camera. If you don't want the camera to be turned on, you can just comment out the last if condition(last 3 lines in the function). 
 
 ### Broadcasting the hand state to other attendees
 
@@ -282,7 +292,7 @@ The main idea of the list here is to store the session id of the participants wi
 
 ### Updating the UI depending on hand states
 
-This is the final step - toggling the UI to show which participants have their hands raised and lowered. Here we will 
+This is the final step - toggling the UI to show which participants have their hands raised and lowered. 
 
 ```js
 /* The function handling all UI changes when attendess raise or lower 
@@ -342,11 +352,13 @@ Now that all the code is implemented, this is how it will look in action:
 
 1. With 2 attendees:
 
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/41234408/133001186-a010c988-d601-4225-b2ee-0824b7a5ae4d.gif" />
 </p>
 
 2. With 4 attendees:
+
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/41234408/133001189-e936b727-31fb-4635-985b-22eb0a5761b3.gif" />
