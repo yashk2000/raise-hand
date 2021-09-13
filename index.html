@@ -54,6 +54,32 @@
           >
             Create room and start
           </button>
+          <p class="url-prompt">or</p>
+          <p
+            id="url-click"
+            class="url-prompt url-click show"
+            onclick="showRoomInput()"
+          >
+            Enter my room URL
+          </p>
+          <div id="url-form" class="url-form hide">
+            <label for="url-input"></label>
+            <input
+              type="text"
+              class="url-input"
+              id="url-input"
+              placeholder="Enter room URL..."
+              pattern="^(https:\/\/)?[\w.-]+(\.(daily\.(co)))+[\/\/]+[\w.-]+$"
+            />
+            <button
+              id="join-call"
+              onclick="joinCall()"
+              class="button start-button disabled-button"
+              disabled
+            >
+              Join room
+            </button>
+          </div>
         </div>
         <div id="error-message" class="hide">
           <h2 id="error-title" class="title error-title">Incorrect room URL</h2>

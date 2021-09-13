@@ -141,7 +141,6 @@ async function handleNewParticipant() {
 
 // Handling when the attendee leaves the meeting
 function handleLeftMeeting(e) {
-  document.querySelector(".participants-section").classList.toggle("hidden");
   let list = document.querySelector(".participant-list");
   list.innerHTML = "";
   toggleMainInterface();
