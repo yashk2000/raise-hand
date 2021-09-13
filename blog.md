@@ -1,8 +1,8 @@
 # Add a Raise Hand section for meeting participants in any Daily video chat app
 
 Over the last year, there has been an increasing demand for high-quality, live video streaming. Such demands have been made from customers hosting classes, large business
-meetings, company meetings, and a lot more. Since all these meetings are interactive, with multiple participants attempting to speak at the same, customers want a "Raise 
-Your Hand" feature. If anyone besides the speaker wants to speak at any point in the meeting, has a question, they can raise their hand to get noticed, after which a 
+meetings, company meetings, and a lot more. Since all these meetings are interactive, with multiple participants attempting to speak at the same, a "Raise 
+Your Hand" feature is becoming a necessity. If anyone besides the speaker wants to speak at any point in the meeting, has a question, they can raise their hand to get noticed, after which a 
 meeting moderator can give everyone who raised their hands a chance to speak in an organized way. If everyone just starts speaking at the same time, imagine the chaos
 in an online meeting!
 
